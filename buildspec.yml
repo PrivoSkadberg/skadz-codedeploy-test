@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      php: 7.3
+    commands:
+      - echo Install started on `date`
+      - echo Nothing to install
+  build:
+    commands:
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - if [ "$CODEBUILD_BUILD_SUCCEEDING" -eq 0 ]; then echo "Build failed. Skipping."; exit 1; fi
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - "**/*"
