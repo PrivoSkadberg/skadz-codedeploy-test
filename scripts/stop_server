@@ -10,3 +10,6 @@ if [[ -n $isExistApp ]]; then
     service httpd stop
   fi
 fi
+
+# Remove Old File
+/bin/rm -f /var/www/html/index.html
