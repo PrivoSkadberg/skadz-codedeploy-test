@@ -8,6 +8,3 @@ if [[ "$OSVERSION" == "Ubuntu" ]]; then
 else
   yum install -y httpd
 fi
-
-
-
