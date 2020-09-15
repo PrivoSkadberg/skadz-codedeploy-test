@@ -1,5 +1,7 @@
 #!/bin/bash
 
+OSVERSION=`grep ^NAME /etc/os-release | awk -F= '{print $2}' | sed -e 's/"//g'`
+
 if [[ "$OSVERSION" == "Ubuntu" ]]; then
   while fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 1; done
   apt-get install -y apache2

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 OSVERSION=`grep ^NAME /etc/os-release | awk -F= '{print $2}' | sed -e 's/"//g'`
-
 isExistApp=`pgrep httpd`
+
 if [[ -n $isExistApp ]]; then
   if [[ "$OSVERSION" == "Ubuntu" ]]; then
     service apache2 stop
