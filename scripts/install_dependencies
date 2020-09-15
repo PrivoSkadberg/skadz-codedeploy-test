@@ -1,3 +1,11 @@
 #!/bin/bash
-yum install -y httpd
+
+if [[ "$OSVERSION" == "Ubuntu" ]]; then
+  while fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 1; done
+  apt-get install -y apache2
+else
+  yum install -y httpd
+fi
+
+
 

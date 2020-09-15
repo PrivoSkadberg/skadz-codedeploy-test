@@ -1,3 +1,9 @@
 #!/bin/bash
-service httpd start
 
+OSVERSION=`grep ^NAME /etc/os-release | awk -F= '{print $2}' | sed -e 's/"//g'`
+
+if [[ "$OSVERSION" == "Ubuntu" ]]; then
+  service apache2 start
+else
+  service httpd start
+fi
